@@ -1,0 +1,14 @@
+services:
+  wine:
+    build:
+      context: .
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./kindle/program:/root/.wine/drive_c/Program Files (x86)/Amazon/Kindle
+      - ./kindle/data:/root/.wine/drive_c/users/root/AppData/Local/Amazon/Kindle
+      - ./kindle/content:/root/My Kindle Content
+    environment:
+      - DISPLAY=:0.0
+    tty: true
+    stdin_open: true
+    
